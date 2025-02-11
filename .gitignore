@@ -5,6 +5,6 @@
 **/.virtual_documents
 
 django_env/**
+django_env/Lib
 !django_env/README.md
-
 
