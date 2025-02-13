@@ -325,6 +325,22 @@ Running migrations:
 
 
 
+## 7. admin后台和管理员
+
+```python
+PS D:\Work\others\django_demo\erp> python manage.py createsuperuser
+
+Username (leave blank to use 'dy-yss02'):
+Email address: hjy0622@163.com
+Password:
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+```
+
 
 
 
@@ -380,4 +396,13 @@ Available subcommands:
     collectstatic
     findstatic
     runserver
+```
+
+
+
+
+# requirments
+```shell
+pip install pipreqs
+pipreqs ./ --encoding=utf8  --force
 ```
