@@ -17,7 +17,16 @@ class Goods(Model):
     # 外键
     category = ForeignKey(GoodsCategory, on_delete=SET_NULL, related_name='goods_set', null=True, verbose_name='产品分类',
                           blank=True, )
-    # on_delete 
+    """
+    该段定义了一个外键字段 `category`，它建立了当前`Goods`模型与名为 `GoodsCategory` 的模型之间的关联
+
+    一个`GoodsCategory`可以关联多个当前模型的实例，表示一个类别下可以有多个产品。
+
+    当所关联的记录被删除时，该字段会自动设置为 NULL，它可以为空。
+
+    `related_name` 设置了反向查询的名称，在 `GoodsCategory` 模型中，可以通过 `goods_set` 这个属性来访问所有关联的产品对象集合。
+    """
+  # on_delete 
 
     number = CharField(max_length=32, verbose_name='产品编号')
     name = CharField(max_length=64, verbose_name='产品名称')
@@ -29,15 +38,6 @@ class Goods(Model):
     remark = CharField(max_length=128, null=True, blank=True, verbose_name='备注')
 
 
-"""
-该段定义了一个外键字段 `category`，它建立了当前`Goods`模型与名为 `GoodsCategory` 的模型之间的关联
-
-一个`GoodsCategory`可以关联多个当前模型的实例，表示一个类别下可以有多个产品。
-
-当所关联的记录被删除时，该字段会自动设置为 NULL，它可以为空。
-
-`related_name` 设置了反向查询的名称，在 `GoodsCategory` 模型中，可以通过 `goods_set` 这个属性来访问所有关联的产品对象集合。
-"""
 
 """
 CharField：用于存储字符串类型，有最大长度限制
